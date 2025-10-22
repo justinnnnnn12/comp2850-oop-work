@@ -20,10 +20,14 @@ fun pickRandomWord(words: MutableList<String>): String {
 
 fun obtainGuess(attempt: Int): String {
     while (true) {
-        print("Attempt $attempt: ")
+        print("Attempt $attempt\nEnter your guess: ")
         val guess = readln().trim().uppercase()
-        if (isValid(guess)) return guess
-        println("Invalid word! Please enter exactly 5 letters.")
+
+        if (isValid(guess)) {
+            return guess
+        } else {
+            println("Invalid word! Please enter a word with exactly 5 letters.")
+        }
     }
 }
 
