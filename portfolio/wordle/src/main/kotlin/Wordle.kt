@@ -28,7 +28,9 @@ fun obtainGuess(attempt: Int): String {
 }
 
 fun evaluateGuess(guess: String, target: String): List<Int> {
-    return guess.mapIndexed {i, c -> if (c ==target[i] 1 else 0)}
+    return guess.mapIndexed {i, c -> 
+        if (c ==target[i]) 1 else 0
+    }
 }
 
 fun displayGuess(guess: String, matches: List<Int>) {

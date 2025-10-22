@@ -3,8 +3,9 @@ fun main() {
     val target = pickRandomWord(words)
     var success = false
 
+    print("The word to guess is: $target\n")
     println("Welcome to Wordle!")
-    println("Try to guess the 5-letter word!")
+    println("Guess the 5 letter word!")
 
     for(attempt in 1..10) {
         val guess = obtainGuess(attempt)
@@ -17,5 +18,9 @@ fun main() {
             break
         }
     }
+if (!success) {
+    println("Great try! The word was $target")
+} 
 }
-if (!sucess) println("Out of attempts! The word was $target")
+
+
