@@ -1,4 +1,4 @@
-// Implement the six required functions here
+import java.io.File
 
 // constant for wordle settings
 const val WORD_LENGTH = 5 

@@ -1,5 +1,6 @@
-import java.io.file
-// this function runs the entire game by connecting with wordle.kt
+// this function runs the entire game by connecting with wordle.kt 
+import java.io.File
+
 fun main() {
     val words = readWordList("data/words.txt") // load the possible list of words for Wordle
     val target = pickRandomWord(words) // select the secret word 
