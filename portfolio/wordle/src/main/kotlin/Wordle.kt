@@ -1,17 +1,16 @@
 // Implement the six required functions here
-import java.io.File
 
-fun isValid(word: String): Boolean {
-    return word.length == 5 && word.all { it.isLetter()}
-}
+// constant for wordle settings
+const val WORD_LENGTH = 5
+const val MAX_ATTEMPTS = 10
 
-fun readWordList(filename: String): MutableList<String> {
-    return File(filename)
+fun isValid(word: String): Boolean = word.length == WORD_LENGTH && word.all { it.isLetter() }
+
+fun readWordList(filename: String): MutableList<String> = File(filename)
     .readLines()
     .map { it.trim().uppercase() }
     .filter { isValid(it) }
     .toMutableList()
-}
 
 fun pickRandomWord(words: MutableList<String>): String {
     val index = (0 until words.size).random()
@@ -31,16 +30,17 @@ fun obtainGuess(attempt: Int): String {
     }
 }
 
-fun evaluateGuess(guess: String, target: String): List<Int> {
-    return guess.mapIndexed {i, c -> 
-        if (c ==target[i]) 1 else 0
-    }
+fun evaluateGuess(guess: String, target: String): List<Int> = guess.mapIndexed { i, c ->
+    if (c == target[i]) 1 else 0
 }
 
 fun displayGuess(guess: String, matches: List<Int>) {
     for(i in guess.indices) {
-        if(matches[i] == 1) print(guess[i])
-        else print('?')
+        if(matches[i] == 1) {
+            print(guess[i])
+        } else {
+            print('?')
+        }
     }
     println()
 }
