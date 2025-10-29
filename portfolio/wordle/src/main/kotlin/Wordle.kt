@@ -5,7 +5,8 @@ const val WORD_LENGTH = 5
 const val MAX_ATTEMPTS = 10
 
 // check if the given word meets the game's length 
-fun isValid(word: String): Boolean = word.length == WORD_LENGTH && word.all { it.isLetter() }
+fun isValid(word: String): Boolean =
+     word.length == WORD_LENGTH && word.all { it.isLetter() }
 
 // reads the list of words from a file, convert to uppercases and filters out invalid entries
 fun readWordList(filename: String): MutableList<String> = File(filename)
@@ -36,7 +37,8 @@ fun obtainGuess(attempt: Int): String {
 
 // compares the guess against the target word, then give results (1 for perfect match, 0 for other cases)
 fun evaluateGuess(guess: String, target: String): List<Int> = guess.mapIndexed { i, c ->
-    if (c == target[i]) 1 else 0 // logic to check if the character matches the target at the same index
+    if (c == target[i]) 1 
+        else 0 // logic to check if the character matches the target at the same index
 }
 
 // displays the result of the guess based on the given results from evaluateGuess

@@ -3,18 +3,18 @@ import java.io.File
 
 fun main() {
     val words = readWordList("data/words.txt") // load the possible list of words for Wordle
-    val target = pickRandomWord(words) // select the secret word 
-    var success = false // track is the player correctly guessed the word
+    val target = pickRandomWord(words) // select the random word for today 
+    var success = false // track if the player correctly guessed the word
 
     print("The word to guess is: $target\n") // for testing, displaying the targeted word
     println("Welcome to Wordle!")
     println("Guess the 5 letter word! You have 10 attempts\n")
 
-    for(attempt in 1..MAX_ATTEMPTS) { // for loop to control the max number of attempts allowed
+    for(attempt in 1..MAX_ATTEMPTS) { // for loop to control the max number of attempts allowed, 10 attempts
         val guess = obtainGuess(attempt)
 
         if (!isValid(guess)) {
-            println("not a valid 5 letter word. Try again pls\n")
+            println("not a valid 5 letter word. Try again!\n")
         }
         val result = evaluateGuess(guess, target)
         displayGuess(guess, result) //displays the guess and players guessed word

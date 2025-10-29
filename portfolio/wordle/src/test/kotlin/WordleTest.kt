@@ -14,7 +14,7 @@ class WordleTest : StringSpec(
         }
 
         // test cases for readWordList()
-        //proving the filtering logic within readWordList works correctly
+        // proving the filtering logic within readWordList works correctly
         
         "should read words from file and only keep valid ones" {
             val words = readWordList("data/words.txt")
